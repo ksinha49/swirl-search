@@ -129,6 +129,13 @@ SWIRL, via LiteLLM and direct connections, supports major GAI/LLMs, including:
 
 For assistance with any of these or additional models, please [contact support](#support).
 
+To use an **OpenAI-compatible endpoint** such as **AWS Bedrock**, set the following in your `.env` file:
+
+```ini
+OPENAI_API_BASE='https://bedrock-runtime.us-east-1.amazonaws.com/openai'
+OPENAI_API_VERSION='2023-05-15'
+```
+
 **External Model Resources**
 
 - [Full list of Supported Embeddings](https://docs.litellm.ai/docs/embedding/supported_embedding)

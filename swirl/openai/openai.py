@@ -56,10 +56,17 @@ class OpenAIClient:
         try:
             if provider == "OPENAI":
                 from openai import OpenAI
-                ai_client = OpenAI(api_key=key)
+                api_base = getattr(settings, 'OPENAI_API_BASE', '')
+                api_version = getattr(settings, 'OPENAI_API_VERSION', '')
+                ai_client = OpenAI(api_key=key, base_url=api_base or None, api_version=api_version or None)
             elif provider == "AZUREAI":
                 from openai import AzureOpenAI
                 ai_client = AzureOpenAI(api_key=key, azure_endpoint=self._azure_endpoint, api_version="2023-10-01-preview")
+            elif provider == "BEDROCKAI":
+                from openai import OpenAI
+                api_base = getattr(settings, 'OPENAI_API_BASE', '')
+                api_version = getattr(settings, 'OPENAI_API_VERSION', '')
+                ai_client = OpenAI(api_key=key, base_url=api_base or None, api_version=api_version or None)
             else:
                 raise NotImplementedError(f"Unknown AI provider {provider}. Client initialization not supported.")
         except Exception as err:
