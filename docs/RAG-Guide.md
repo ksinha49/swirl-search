@@ -39,6 +39,13 @@ SWIRL supports Real-Time **Retrieval Augmented Generation (RAG)** out of the box
     AZURE_MODEL=<your-azure-openai-model>
     ```
 
+    Optionally specify a compatible endpoint (e.g., AWS Bedrock):
+
+    ```shell
+    OPENAI_API_BASE='https://bedrock-runtime.us-east-1.amazonaws.com/openai'
+    OPENAI_API_VERSION='2023-05-15'
+    ```
+
     {: .warning }  
     **SWIRL AI Search Community Edition supports RAG only with OpenAI and Azure OpenAI.**  
     The [Enterprise Edition](AI-Search#connecting-to-generative-ai-gai-and-large-language-models-llms) supports additional providers.  
